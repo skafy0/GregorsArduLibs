@@ -42,6 +42,9 @@ void MyDelay::stop() {
 
 //Method resumes calcualtion of interval and doesn't reset preMills variable as start method does
 void MyDelay::resume() {
+	if (preMills <> null) {
+		preMills =  millis() - (millis() - preMills);
+	}
 	canExecute = true;
 }
 
